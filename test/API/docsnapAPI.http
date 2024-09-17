@@ -1,0 +1,6 @@
+@docsnapAPI_HostAddress = http://localhost:5012
+
+GET {{docsnapAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
