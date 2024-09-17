@@ -7,8 +7,7 @@ namespace Docsnap
     {
         static void Main(string[] args)
         {
-            string content = Reader.Read("teste.md");
-            Console.WriteLine(content);
+            Compiler.Compile("teste.md", "teste.html");
         }
     }
 }
