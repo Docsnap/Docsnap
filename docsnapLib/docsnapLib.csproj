@@ -4,7 +4,12 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <OutputType>Library</OutputType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Remova o Microsoft.AspNetCore.App, pois não é necessário e não é compatível com .NET 8.0 -->
+  </ItemGroup>
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" Version="2.2.8" />
@@ -12,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Docs\index.html" />
-    <EmbeddedResource Include="Docs\js\script.js" />
+    <EmbeddedResource Include="docs\index.html" />
+    <EmbeddedResource Include="docs\js\script.js" />
   </ItemGroup>
-
+  
 </Project>

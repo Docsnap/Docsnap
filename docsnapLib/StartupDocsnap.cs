@@ -2,27 +2,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 
-namespace Docsnap;
+namespace docsnapLib;
 
-public static class Docsnap
+public class StartupDocsnap
 {
-    public static string route = "/docsnap";
-
-    public static void UseDocsnap(IApplicationBuilder app)
-    {
-        app.UseRouting();
-
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapGet(route, async context =>
-            {
-                string htmlContent = await GetDocsnapHtml();
-                context.Response.ContentType = "text/html";
-                await context.Response.WriteAsync(htmlContent);
-            });
-        });
-    }
-
     public static async Task<string> GetDocsnapHtml()
     {
         Assembly assembly = Assembly.GetExecutingAssembly();
@@ -54,5 +37,20 @@ public static class Docsnap
         }
 
         return fileAssembly;
+    }
+
+    public static void ConfigureDocsnap(IApplicationBuilder app)
+    {
+        app.UseRouting();
+
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapGet("/docsnap", async context =>
+            {
+                string htmlContent = await GetDocsnapHtml();
+                context.Response.ContentType = "text/html";
+                await context.Response.WriteAsync(htmlContent);
+            });
+        });
     }
 }
