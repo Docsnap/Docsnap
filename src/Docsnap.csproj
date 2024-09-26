@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" Version="2.2.8" />
-    <PackageReference Include="MarkedNet" Version="2.1.4" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
   </ItemGroup>
 
