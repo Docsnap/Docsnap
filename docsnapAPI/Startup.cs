@@ -1,4 +1,4 @@
-using docsnapLib;
+using docsnap;
 
 namespace docsnapAPI;
 
@@ -12,7 +12,7 @@ public class Startup
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         // Configura a aplicação para usar a funcionalidade da biblioteca docsnapLib
-        StartupDocsnap.ConfigureDocsnap(app);
+        Docsnap.ConfigureDocsnap(app);
 
         app.UseRouting();
 

@@ -1,0 +1,12 @@
+C:\Users\vhfaz\OneDrive\Documentos\Projetos\Docsnap\docsnapLib\bin\Debug\net8.0\docsnapLib.deps.json
+C:\Users\vhfaz\OneDrive\Documentos\Projetos\Docsnap\docsnapLib\bin\Debug\net8.0\docsnapLib.dll
+C:\Users\vhfaz\OneDrive\Documentos\Projetos\Docsnap\docsnapLib\bin\Debug\net8.0\docsnapLib.pdb
+C:\Users\vhfaz\OneDrive\Documentos\Projetos\Docsnap\docsnapLib\obj\Debug\net8.0\docsnapLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vhfaz\OneDrive\Documentos\Projetos\Docsnap\docsnapLib\obj\Debug\net8.0\docsnapLib.AssemblyInfoInputs.cache
+C:\Users\vhfaz\OneDrive\Documentos\Projetos\Docsnap\docsnapLib\obj\Debug\net8.0\docsnapLib.AssemblyInfo.cs
+C:\Users\vhfaz\OneDrive\Documentos\Projetos\Docsnap\docsnapLib\obj\Debug\net8.0\docsnapLib.csproj.CoreCompileInputs.cache
+C:\Users\vhfaz\OneDrive\Documentos\Projetos\Docsnap\docsnapLib\obj\Debug\net8.0\docsnapLib.sourcelink.json
+C:\Users\vhfaz\OneDrive\Documentos\Projetos\Docsnap\docsnapLib\obj\Debug\net8.0\docsnapLib.dll
+C:\Users\vhfaz\OneDrive\Documentos\Projetos\Docsnap\docsnapLib\obj\Debug\net8.0\refint\docsnapLib.dll
+C:\Users\vhfaz\OneDrive\Documentos\Projetos\Docsnap\docsnapLib\obj\Debug\net8.0\docsnapLib.pdb
+C:\Users\vhfaz\OneDrive\Documentos\Projetos\Docsnap\docsnapLib\obj\Debug\net8.0\ref\docsnapLib.dll

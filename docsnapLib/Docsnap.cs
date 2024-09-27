@@ -1,15 +1,19 @@
 ﻿using System.Reflection;
+using System.Text;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
-namespace docsnapLib;
+namespace docsnap;
 
-public class StartupDocsnap
+public class Docsnap
 {
+    public static string docsPath = Directory.GetCurrentDirectory() + "/docs";
+
+    private static Assembly assembly = Assembly.GetExecutingAssembly();
+
     public static async Task<string> GetDocsnapHtml()
     {
-        Assembly assembly = Assembly.GetExecutingAssembly();
-
         // Lista de recursos e seus placeholders correspondentes
         Dictionary<string, string> resources = new()
         {
@@ -52,5 +56,50 @@ public class StartupDocsnap
                 await context.Response.WriteAsync(htmlContent);
             });
         });
+
+        ScanControllers();
+    }
+
+    private static void IfNotExistsCreateDirectory()
+    {
+        if (!Directory.Exists(docsPath))
+        {
+            System.Console.WriteLine("Docsnap: Making docs directory");
+            Directory.CreateDirectory(docsPath);
+        }
+    }
+
+    private static void ScanControllers()
+    {
+        var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+
+        var controllers = assemblies
+            .SelectMany(a => a.GetTypes())
+            .Where(t => typeof(ControllerBase).IsAssignableFrom(t) && !t.IsAbstract) // Filtra os que herdam de ControllerBase (usado pelo ASP.NET Core)
+            .ToList();
+
+        System.Console.WriteLine("Docsnap: Making md files");
+
+        foreach (var controller in controllers)
+        {
+            IfNotExistsCreateDirectory();
+
+            string fileController = $"{docsPath}/{controller.Name}.md";
+
+            if (!File.Exists(fileController))
+            {
+                StringBuilder content = new();
+
+                var methods = controller.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
+                                           .Where(m => m.IsPublic && m.DeclaringType == controller);
+
+                foreach (var method in methods)
+                {
+                    content.AppendLine($"## {method.Name}");
+                }
+
+                File.WriteAllText(fileController, content.ToString());
+            }
+        }
     }
 }
