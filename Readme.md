@@ -15,4 +15,4 @@ to test Docsnap, you need to clone this repo, run the project in the test folder
 
 # Features
 
-This is an alpha project, but our scope is a swagger-like library to make your documentation easily and beautiful in instant
+This is an alpha project, but our scope is a swagger-like library to make your documentation easily and beautiful in an instant
