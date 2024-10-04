@@ -1,28 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vhfaz\\OneDrive\\Documentos\\Projetos\\Docsnap\\Docsnap\\docsnap.csproj": {}
+    "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Docsnap\\Docsnap.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vhfaz\\OneDrive\\Documentos\\Projetos\\Docsnap\\Docsnap\\docsnap.csproj": {
+    "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Docsnap\\Docsnap.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vhfaz\\OneDrive\\Documentos\\Projetos\\Docsnap\\Docsnap\\docsnap.csproj",
-        "projectName": "docsnap",
-        "projectPath": "C:\\Users\\vhfaz\\OneDrive\\Documentos\\Projetos\\Docsnap\\Docsnap\\docsnap.csproj",
-        "packagesPath": "C:\\Users\\vhfaz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vhfaz\\OneDrive\\Documentos\\Projetos\\Docsnap\\Docsnap\\obj\\",
+        "projectUniqueName": "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Docsnap\\Docsnap.csproj",
+        "projectName": "Docsnap",
+        "projectPath": "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Docsnap\\Docsnap.csproj",
+        "packagesPath": "C:\\Users\\deusiel.brizante\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Docsnap\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\vhfaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\deusiel.brizante\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -46,9 +43,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Markdown": {
+            "Markdig.Signed": {
               "target": "Package",
-              "version": "[2.2.1, )"
+              "version": "[0.37.0, )"
             },
             "Microsoft.AspNetCore.Http.Abstractions": {
               "target": "Package",
@@ -74,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

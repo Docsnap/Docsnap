@@ -24,3 +24,16 @@ C:\Users\vhfaz\OneDrive\Documentos\Projetos\Docsnap\Docsnap\obj\Debug\net8.0\doc
 C:\Users\vhfaz\OneDrive\Documentos\Projetos\Docsnap\Docsnap\obj\Debug\net8.0\refint\docsnap.dll
 C:\Users\vhfaz\OneDrive\Documentos\Projetos\Docsnap\Docsnap\obj\Debug\net8.0\docsnap.pdb
 C:\Users\vhfaz\OneDrive\Documentos\Projetos\Docsnap\Docsnap\obj\Debug\net8.0\ref\docsnap.dll
+C:\Users\deusiel.brizante\Downloads\Docsnap\Docsnap\bin\Debug\net8.0\docsnap.deps.json
+C:\Users\deusiel.brizante\Downloads\Docsnap\Docsnap\bin\Debug\net8.0\docsnap.dll
+C:\Users\deusiel.brizante\Downloads\Docsnap\Docsnap\bin\Debug\net8.0\docsnap.pdb
+C:\Users\deusiel.brizante\Downloads\Docsnap\Docsnap\obj\Debug\net8.0\docsnap.csproj.AssemblyReference.cache
+C:\Users\deusiel.brizante\Downloads\Docsnap\Docsnap\obj\Debug\net8.0\docsnap.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\deusiel.brizante\Downloads\Docsnap\Docsnap\obj\Debug\net8.0\docsnap.AssemblyInfoInputs.cache
+C:\Users\deusiel.brizante\Downloads\Docsnap\Docsnap\obj\Debug\net8.0\docsnap.AssemblyInfo.cs
+C:\Users\deusiel.brizante\Downloads\Docsnap\Docsnap\obj\Debug\net8.0\docsnap.csproj.CoreCompileInputs.cache
+C:\Users\deusiel.brizante\Downloads\Docsnap\Docsnap\obj\Debug\net8.0\docsnap.sourcelink.json
+C:\Users\deusiel.brizante\Downloads\Docsnap\Docsnap\obj\Debug\net8.0\docsnap.dll
+C:\Users\deusiel.brizante\Downloads\Docsnap\Docsnap\obj\Debug\net8.0\refint\docsnap.dll
+C:\Users\deusiel.brizante\Downloads\Docsnap\Docsnap\obj\Debug\net8.0\docsnap.pdb
+C:\Users\deusiel.brizante\Downloads\Docsnap\Docsnap\obj\Debug\net8.0\ref\docsnap.dll

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("docsnapAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3273337b3f79d6a761fbe9ed6d24586d42c0f33d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aff3d2918c14d4cb64907fb74627b47eb508254b")]
 [assembly: System.Reflection.AssemblyProductAttribute("docsnapAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("docsnapAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

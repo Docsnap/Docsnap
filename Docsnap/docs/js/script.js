@@ -68,7 +68,7 @@ const createNav = () => {
     versionDiv.classList.add('flex', 'justify-center', 'items-center', 'bg-red-500', 'rounded-md', 'my-3', 'mx-1');
     const versionText = document.createElement('p');
     versionText.classList.add('text-white', 'p-2');
-    versionText.textContent = 'v0.1.2';
+    versionText.textContent = 'v0.1.3';
     versionDiv.appendChild(versionText);
 
     nav.appendChild(titleDiv);

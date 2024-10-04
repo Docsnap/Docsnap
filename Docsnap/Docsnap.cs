@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using System.Text;
+using Markdig;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +13,7 @@ public static class Docsnap
 
     private static Assembly assembly = Assembly.GetExecutingAssembly();
 
-    public static async Task<string> GetDocsnapHtml()
+    public static async Task<string> GetDocsnapHtml(string htmlContent)
     {
         // Lista de recursos e seus placeholders correspondentes
         Dictionary<string, string> resources = new()
@@ -33,12 +34,15 @@ public static class Docsnap
             string resourceName = resource.Key;
             string placeholder = $"{{{{{resource.Value}}}}}";
 
+
             Stream stream = assembly.GetManifestResourceStream(resourceName) ?? throw new Exception($"Resource '{resourceName}' not found.");
             StreamReader reader = new(stream);
 
             // Substitua o placeholder pelo conteúdo do recurso
             fileAssembly = fileAssembly.Replace(placeholder, await reader.ReadToEndAsync());
         }
+
+        fileAssembly = fileAssembly.Replace("{{MARKDOWN_CONTENT}}", htmlContent);
 
         return fileAssembly;
     }
@@ -48,11 +52,13 @@ public static class Docsnap
         IfNotExistsCreateDirectory();
         ScanControllers();
 
+        string html = CreateHtml();
+
         app.Use(async (context, next) =>
         {
             if (context.Request.Path.StartsWithSegments("/docsnap"))
             {
-                string htmlContent = await GetDocsnapHtml();
+                string htmlContent = await GetDocsnapHtml(html);
                 context.Response.ContentType = "text/html";
                 await context.Response.WriteAsync(htmlContent);
             }
@@ -69,9 +75,23 @@ public static class Docsnap
     {
         if (!Directory.Exists(docsPath))
         {
-            System.Console.WriteLine("Docsnap: Making docs directory");
+            Console.WriteLine("Docsnap: Making docs directory");
             Directory.CreateDirectory(docsPath);
         }
+    }
+
+    public static string CreateHtml()
+    {
+        string[] files = Directory.GetFiles(docsPath, "*.md");
+        string htmlFiles = string.Empty;
+
+        foreach (string file in files)
+        {
+            string content = File.ReadAllText(file);
+            htmlFiles += Markdown.ToHtml(content);
+        }
+
+        return htmlFiles;
     }
 
     private static void ScanControllers()
