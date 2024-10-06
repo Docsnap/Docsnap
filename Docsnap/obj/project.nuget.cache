@@ -1,16 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "1R3EMZQVYwvX51rbOn79A+RoPDlHeGjqlKOhc2EcJcuoDDCmpZHGPOkSwRer7YYwaHGbuB55XtG1mblsyntghw==",
+  "dgSpecHash": "0P8vsE+XIekwuBR1KlGmUP4lf7Jn73t40WsLa0HtGt2QldbLe4sdEzekT3E14h/S9YHiV3vM+USb7a3O+abLeA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Docsnap\\Docsnap.csproj",
+  "projectFilePath": "/home/bugalinux/Programming/Docsnap/Docsnap/Docsnap.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\deusiel.brizante\\.nuget\\packages\\markdig.signed\\0.37.0\\markdig.signed.0.37.0.nupkg.sha512",
-    "C:\\Users\\deusiel.brizante\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
-    "C:\\Users\\deusiel.brizante\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
-    "C:\\Users\\deusiel.brizante\\.nuget\\packages\\microsoft.extensions.primitives\\2.2.0\\microsoft.extensions.primitives.2.2.0.nupkg.sha512",
-    "C:\\Users\\deusiel.brizante\\.nuget\\packages\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
-    "C:\\Users\\deusiel.brizante\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
-    "C:\\Users\\deusiel.brizante\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
+    "/home/bugalinux/.nuget/packages/markdig.signed/0.37.0/markdig.signed.0.37.0.nupkg.sha512",
+    "/home/bugalinux/.nuget/packages/microsoft.aspnetcore.http.abstractions/2.2.0/microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "/home/bugalinux/.nuget/packages/microsoft.aspnetcore.http.features/2.2.0/microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "/home/bugalinux/.nuget/packages/microsoft.extensions.primitives/2.2.0/microsoft.extensions.primitives.2.2.0.nupkg.sha512",
+    "/home/bugalinux/.nuget/packages/system.memory/4.5.1/system.memory.4.5.1.nupkg.sha512",
+    "/home/bugalinux/.nuget/packages/system.runtime.compilerservices.unsafe/4.5.1/system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
+    "/home/bugalinux/.nuget/packages/system.text.encodings.web/4.5.0/system.text.encodings.web.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Docsnap\docsnap.csproj" />
+    <ProjectReference Include="..\Docsnap\Docsnap.csproj" />
   </ItemGroup>
 
 </Project>

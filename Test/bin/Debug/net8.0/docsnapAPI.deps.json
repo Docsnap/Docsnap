@@ -8,9 +8,9 @@
     ".NETCoreApp,Version=v8.0": {
       "docsnapAPI/1.0.0": {
         "dependencies": {
+          "Docsnap": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "8.0.8",
-          "Swashbuckle.AspNetCore": "6.4.0",
-          "docsnap": "1.0.0"
+          "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
           "docsnapAPI.dll": {}
@@ -102,13 +102,13 @@
       "System.Memory/4.5.1": {},
       "System.Runtime.CompilerServices.Unsafe/4.5.1": {},
       "System.Text.Encodings.Web/4.5.0": {},
-      "docsnap/1.0.0": {
+      "Docsnap/1.0.0": {
         "dependencies": {
           "Markdig.Signed": "0.37.0",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0"
         },
         "runtime": {
-          "docsnap.dll": {}
+          "Docsnap.dll": {}
         }
       }
     }
@@ -217,7 +217,7 @@
       "path": "system.text.encodings.web/4.5.0",
       "hashPath": "system.text.encodings.web.4.5.0.nupkg.sha512"
     },
-    "docsnap/1.0.0": {
+    "Docsnap/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

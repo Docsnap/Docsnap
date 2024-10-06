@@ -18,8 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="docs\index.html" />
-    <EmbeddedResource Include="docs\js\script.js" />
+    <EmbeddedResource Include="web\index.html" />
+    <EmbeddedResource Include="web\js\script.js" />
   </ItemGroup>
   
 </Project>

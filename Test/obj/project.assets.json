@@ -206,7 +206,7 @@
           }
         }
       },
-      "docsnap/1.0.0": {
+      "Docsnap/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
@@ -214,10 +214,10 @@
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0"
         },
         "compile": {
-          "bin/placeholder/docsnap.dll": {}
+          "bin/placeholder/Docsnap.dll": {}
         },
         "runtime": {
-          "bin/placeholder/docsnap.dll": {}
+          "bin/placeholder/Docsnap.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -698,33 +698,33 @@
         "version.txt"
       ]
     },
-    "docsnap/1.0.0": {
+    "Docsnap/1.0.0": {
       "type": "project",
-      "path": "../Docsnap/docsnap.csproj",
-      "msbuildProject": "../Docsnap/docsnap.csproj"
+      "path": "../Docsnap/Docsnap.csproj",
+      "msbuildProject": "../Docsnap/Docsnap.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Docsnap >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 8.0.8",
-      "Swashbuckle.AspNetCore >= 6.4.0",
-      "docsnap >= 1.0.0"
+      "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\deusiel.brizante\\.nuget\\packages\\": {}
+    "/home/bugalinux/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Test\\docsnapAPI.csproj",
+      "projectUniqueName": "/home/bugalinux/Programming/Docsnap/Test/docsnapAPI.csproj",
       "projectName": "docsnapAPI",
-      "projectPath": "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Test\\docsnapAPI.csproj",
-      "packagesPath": "C:\\Users\\deusiel.brizante\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Test\\obj\\",
+      "projectPath": "/home/bugalinux/Programming/Docsnap/Test/docsnapAPI.csproj",
+      "packagesPath": "/home/bugalinux/.nuget/packages/",
+      "outputPath": "/home/bugalinux/Programming/Docsnap/Test/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\deusiel.brizante\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/bugalinux/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -736,8 +736,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Docsnap\\docsnap.csproj": {
-              "projectPath": "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Docsnap\\docsnap.csproj"
+            "/home/bugalinux/Programming/Docsnap/Docsnap/Docsnap.csproj": {
+              "projectPath": "/home/bugalinux/Programming/Docsnap/Docsnap/Docsnap.csproj"
             }
           }
         }
@@ -746,11 +746,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -785,7 +780,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.108/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
