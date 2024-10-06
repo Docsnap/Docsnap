@@ -13,7 +13,7 @@ public class Startup
     {
         // Configura a aplicação para usar a funcionalidade da biblioteca docsnapLib
         app.UseDocsnap();
-        app.AlterDocsnapPath("/md");
+        //app.AlterDocsnapPath("/md");
 
         app.UseRouting();
 

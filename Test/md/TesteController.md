@@ -1,2 +1,0 @@
-## ObterDados
-## DeletarDados

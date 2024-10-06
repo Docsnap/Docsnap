@@ -4,7 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace docsnap.utils;
 
-public class ScanControllers
+/// <summary>
+/// This class is responsible to see all of things about the project linked to this library 
+/// </summary>
+public class Watcher
 {
     public static void ScanAllControllers(string Path)
     {
@@ -17,22 +20,26 @@ public class ScanControllers
 
         foreach (Type controller in controllers)
         {
-            string fileController = $"{Path}/{controller.Name}.md";
+            string pathController = $"{Path}/{controller.Name}.md";
 
-            if (!File.Exists(fileController))
+            if (!File.Exists(pathController))
             {
                 StringBuilder content = new();
 
-                IEnumerable<MethodInfo> methods = controller.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
-                                           .Where(m => m.IsPublic && m.DeclaringType == controller);
-
+                IEnumerable<MethodInfo> methods = ScanAllMethods(controller);
                 foreach (MethodInfo method in methods)
                 {
                     content.AppendLine($"## {method.Name}");
                 }
 
-                File.WriteAllText(fileController, content.ToString());
+                File.WriteAllText(pathController, content.ToString());
             }
         }
+    }
+
+    private static IEnumerable<MethodInfo> ScanAllMethods(Type controller)
+    {
+        return controller.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
+                                   .Where(m => m.IsPublic && m.DeclaringType == controller);
     }
 }

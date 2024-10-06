@@ -712,32 +712,35 @@
     ]
   },
   "packageFolders": {
-    "/home/bugalinux/.nuget/packages/": {}
+    "C:\\Users\\vhfaz\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/bugalinux/Programming/Docsnap/Test/docsnapAPI.csproj",
+      "projectUniqueName": "C:\\Users\\vhfaz\\OneDrive\\Documentos\\Projetos\\Docsnap\\Test\\docsnapAPI.csproj",
       "projectName": "docsnapAPI",
-      "projectPath": "/home/bugalinux/Programming/Docsnap/Test/docsnapAPI.csproj",
-      "packagesPath": "/home/bugalinux/.nuget/packages/",
-      "outputPath": "/home/bugalinux/Programming/Docsnap/Test/obj/",
+      "projectPath": "C:\\Users\\vhfaz\\OneDrive\\Documentos\\Projetos\\Docsnap\\Test\\docsnapAPI.csproj",
+      "packagesPath": "C:\\Users\\vhfaz\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\vhfaz\\OneDrive\\Documentos\\Projetos\\Docsnap\\Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/bugalinux/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\vhfaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/home/bugalinux/Programming/Docsnap/Docsnap/Docsnap.csproj": {
-              "projectPath": "/home/bugalinux/Programming/Docsnap/Docsnap/Docsnap.csproj"
+            "C:\\Users\\vhfaz\\OneDrive\\Documentos\\Projetos\\Docsnap\\Docsnap\\Docsnap.csproj": {
+              "projectPath": "C:\\Users\\vhfaz\\OneDrive\\Documentos\\Projetos\\Docsnap\\Docsnap\\Docsnap.csproj"
             }
           }
         }
@@ -746,6 +749,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -780,7 +788,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.108/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

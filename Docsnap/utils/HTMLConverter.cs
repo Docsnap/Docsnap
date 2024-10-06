@@ -2,7 +2,7 @@ using Markdig;
 
 namespace docsnap.utils;
 
-public class ConvertToHtml
+public class HTMLConverter
 {
     public static string CreateHtml(string Path)
     {
