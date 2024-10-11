@@ -1,12 +1,15 @@
 using System.Reflection;
+using System.Text.Json;
+using Docsnap.Models;
 
-namespace docsnap.utils;
+namespace Docsnap.utils;
 
 public class WriteHtml
 {
+    private readonly static JsonSerializerOptions jsonOptions = new() { WriteIndented = true };
     private readonly static Assembly assembly = Assembly.GetExecutingAssembly();
 
-    public static async Task<string> WriteToHtml(string htmlContent)
+    public static async Task<string> WriteToHtml(List<ListMDJson> htmlContent)
     {
         // Lista de recursos e seus placeholders correspondentes
         Dictionary<string, string> resources = new()
@@ -35,7 +38,10 @@ public class WriteHtml
             fileAssembly = fileAssembly.Replace(placeholder, await reader.ReadToEndAsync());
         }
 
-        fileAssembly = fileAssembly.Replace("{{MARKDOWN_CONTENT}}", htmlContent);
+        string jsonContent = JsonSerializer.Serialize(htmlContent, jsonOptions);
+
+
+        fileAssembly = fileAssembly.Replace("{{MARKDOWN_CONTENT}}", jsonContent);
 
         return fileAssembly;
     }

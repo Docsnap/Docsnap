@@ -1,4 +1,4 @@
-namespace docsnap.utils
+namespace Docsnap.utils
 {
     public class CheckDirectory
     {

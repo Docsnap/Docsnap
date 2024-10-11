@@ -1,20 +1,53 @@
+using System.Text.RegularExpressions;
+using Docsnap.Models;
 using Markdig;
 
-namespace docsnap.utils;
+namespace Docsnap.utils;
 
-public class HTMLConverter
+public partial class HTMLConverter
 {
-    public static string CreateHtml(string Path)
+    public static List<ListMDJson> ConvertMDToPDF(string Path)
     {
         string[] files = Directory.GetFiles(Path, "*.md");
-        string htmlFiles = string.Empty;
+        Console.WriteLine("Quantidade de Arquivos: " + files.Length);
+        List<ListMDJson> MDObject = [];
 
         foreach (string file in files)
         {
-            string content = File.ReadAllText(file);
-            htmlFiles += Markdown.ToHtml(content);
+            ListMDJson ListMd = new();
+            MDJson md = new();
+
+            foreach (string line in File.ReadAllLines(file))
+            {
+                string lineMd = Markdown.ToHtml(line);
+
+                if (ContainsSpecificTag(lineMd, "h2"))
+                {
+                    if (!string.IsNullOrEmpty(md.TitleMD))
+                    {
+                        ListMd.MDJsonList.Add(md);
+                        md = new();
+                    }
+
+                    md.TitleMD = lineMd;
+                }
+                else
+                {
+                    md.BodyMD.Add(lineMd);
+                }
+            }
+
+            ListMd.MDJsonList.Add(md);
+            MDObject.Add(ListMd);
         }
 
-        return htmlFiles;
+        return MDObject;
+    }
+
+    // Função auxiliar para detectar tags HTML
+    private static bool ContainsSpecificTag(string line, string tag)
+    {
+        Regex tagPattern = new($@"<\s*{tag}\b[^>]*>(.*?)<\/\s*{tag}\s*>");
+        return tagPattern.IsMatch(line);
     }
 }

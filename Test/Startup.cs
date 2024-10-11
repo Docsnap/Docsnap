@@ -1,4 +1,4 @@
-using docsnap;
+using Docsnap;
 
 namespace docsnapAPI;
 

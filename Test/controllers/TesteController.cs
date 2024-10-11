@@ -6,14 +6,14 @@ namespace docsnapAPI.Controllers
     [Route("api/[controller]")]
     public class TesteController : ControllerBase
     {
-        [HttpGet]
+        [HttpGet("/batata")]
         public IActionResult ObterDados()
         {
             return Ok(new { mensagem = "Olá, mundo!" });
         }
 
-        [HttpDelete]
-        public IActionResult DeletarDados()
+        [HttpDelete("andar/{pe:int}")]
+        public IActionResult DeletarDados(int pe)
         {
             return NoContent();
         }

@@ -1,14 +1,15 @@
 ﻿using System.Diagnostics;
-using docsnap.utils;
+using Docsnap.utils;
 using Markdig;
+using Docsnap.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 
-namespace docsnap;
+namespace Docsnap;
 
 public static class Docsnap
 {
-    private static Stopwatch Timer = new();
+    private static readonly Stopwatch Timer = new();
     private static string docsPath = Directory.GetCurrentDirectory() + "/docs";
 
     /// <summary>
@@ -23,7 +24,7 @@ public static class Docsnap
         CheckDirectory.IfNotExistsCreateDirectory(docsPath);
         Watcher.ScanAllControllers(docsPath);
 
-        string html = HTMLConverter.CreateHtml(docsPath);
+        List<ListMDJson> html = HTMLConverter.ConvertMDToPDF(docsPath);
 
         app.Use(async (context, next) =>
         {

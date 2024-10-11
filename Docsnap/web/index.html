@@ -7,9 +7,17 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>DocsnapAPI</title>
 </head>
+
 <body>
-    {{MARKDOWN_CONTENT}}
+    <pre id="jsonMD">
+        {{MARKDOWN_CONTENT}}
+    </pre>
     <script>
+        window.onload = function() {
+            const jsonData = document.getElementById('jsonMD').textContent;
+            console.log('MDJson Data:', JSON.parse(jsonData));
+        };
+
         {{JS_STYLES_CONTENT}}
     </script>
 </body>
