@@ -22,7 +22,7 @@ public static class Docsnap
         Timer.Start();
 
         CheckDirectory.IfNotExistsCreateDirectory(docsPath);
-        Watcher.ScanAllControllers(docsPath);
+        MethodsAndController.ScanAllControllers(docsPath);
 
         List<ListMDJson> html = HTMLConverter.ConvertMDToPDF(docsPath);
 

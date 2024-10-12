@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Docsnap")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8cf39edf31a43fe5c77f433c937dc4844737c905")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f214beff3d67b84ce3ade2e464bd0ef7a6013f3")]
 [assembly: System.Reflection.AssemblyProductAttribute("Docsnap")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Docsnap")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

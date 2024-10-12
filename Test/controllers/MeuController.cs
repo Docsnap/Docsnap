@@ -29,6 +29,12 @@ namespace docsnapAPI.Controllers
         {
             return NoContent();
         }
+
+        [HttpDelete]
+        public IActionResult RemoveDados()
+        {
+            return NoContent();
+        }
     }
 
     public class Dados

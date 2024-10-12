@@ -1,10 +1,12 @@
 # &MeuController
-     Controller route: api/Meu
-## @ObterDados
-## @Route: 
-## CriarDados
-## Route: 
-## AtualizarDados
-## Route: 
-## DeletarDados
-## Route: 
+       Controller route: api/Meu
+## @@ObterDados
+       
+## @@CriarDados
+       
+## @@AtualizarDados
+       
+## @@DeletarDados
+       
+## @@RemoveDados
+       

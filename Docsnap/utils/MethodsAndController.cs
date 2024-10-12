@@ -1,5 +1,5 @@
 using System.Reflection;
-using System.Text;
+using Docsnap.data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 
@@ -8,16 +8,16 @@ namespace Docsnap.utils;
 /// <summary>
 /// This class is responsible to see all of things about the project linked to this library 
 /// </summary>
-public class Watcher
+public class MethodsAndController
 {
     public static void ScanAllControllers(string Path)
     {
         Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
 
         List<Type> controllers = assemblies
-            .SelectMany(a => a.GetTypes())
-            .Where(t => typeof(ControllerBase).IsAssignableFrom(t) && !t.IsAbstract)
-            .ToList();
+                                    .SelectMany(assembly => assembly.GetTypes())
+                                    .Where(assembly => typeof(ControllerBase).IsAssignableFrom(assembly) && !assembly.IsAbstract)
+                                    .ToList();
 
         foreach (Type controller in controllers)
         {
@@ -25,39 +25,28 @@ public class Watcher
 
             if (!File.Exists(pathController))
             {
-                StringBuilder content = new();
-
-                string classRoute = GetControllerRoute(controller);
-                content.AppendLine($"# {controller.Name}");
-                content.AppendLine($"Controller route: {classRoute}");
-
-                IEnumerable<(MethodInfo, string)> methods = ScanAllMethods(controller);
-                foreach ((MethodInfo method, string route) in methods)
-                {
-                    content.AppendLine($"## {method.Name}");
-                    Console.WriteLine("Rotas: " + route);
-                    content.AppendLine($"## Route: {route}");
-                }
-
-                File.WriteAllText(pathController, content.ToString());
+                MDFile.CreateMDFiles(pathController, controller);
+            }
+            else
+            {
+                MDFile.AjustRoutesMDFiles(pathController, controller);
             }
         }
     }
 
-    private static string GetControllerRoute(Type controller)
+    public static string GetControllerRoute(Type controller)
     {
         RouteAttribute? routeAttribute = controller.GetCustomAttribute<RouteAttribute>();
-        
+
         if (routeAttribute != null)
         {
-            // Substitui o placeholder [controller] com o nome da classe do controller
             return routeAttribute.Template?.Replace("[controller]", controller.Name.Replace("Controller", "")) ?? string.Empty;
         }
 
         return string.Empty;
     }
 
-    private static IEnumerable<(MethodInfo method, string route)> ScanAllMethods(Type controller)
+    public static IEnumerable<MethodsWithRoutes> ScanAllMethods(Type controller)
     {
         IEnumerable<MethodInfo> methods = controller.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
                                    .Where(m => m.IsPublic && m.DeclaringType == controller);
@@ -65,8 +54,8 @@ public class Watcher
         foreach (MethodInfo method in methods)
         {
             List<Attribute> routesAttributes = method.GetCustomAttributes()
-                                .Where(attribute => attribute is RouteAttribute || attribute.GetType().Name.StartsWith("Http"))
-                                .ToList();
+                                    .Where(attribute => attribute is RouteAttribute || attribute.GetType().Name.StartsWith("Http"))
+                                    .ToList();
 
             foreach (Attribute attribute in routesAttributes)
             {
@@ -81,8 +70,38 @@ public class Watcher
                     route = httpAttribute.Template ?? string.Empty;
                 }
 
-                yield return (method, route);
+                yield return new MethodsWithRoutes()
+                {
+                    Method = method,
+                    Route = route
+                };
             }
         }
+    }
+
+    public static bool CheckAndUpdateAllMethods(CheckAndUpdateMethods checkAndUpdate, out bool routeUpdated)
+    {
+        routeUpdated = false;
+        bool methodExists = false;
+
+        for (int i = 0; i < checkAndUpdate.FileLines.Count - 1; i++)
+        {
+            if (checkAndUpdate.FileLines[i].StartsWith($"## @@{checkAndUpdate.MethodName}"))
+            {
+                methodExists = true;
+
+                if (checkAndUpdate.FileLines[i + 1].Trim() == checkAndUpdate.Route)
+                {
+                    continue;
+                }
+                else
+                {
+                    routeUpdated = true;
+                    checkAndUpdate.FileLines[i + 1] = $"       {checkAndUpdate.Route}";
+                }
+            }
+        }
+
+        return methodExists;
     }
 }
