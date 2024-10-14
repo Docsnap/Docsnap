@@ -6,10 +6,10 @@ namespace Docsnap.utils;
 
 public partial class HTMLConverter
 {
-    public static List<ListMDJson> ConvertMDToPDF(string Path)
+    public static List<ListMDJson> ConvertMDToHTML(string Path)
     {
         string[] files = Directory.GetFiles(Path, "*.md");
-        Console.WriteLine("Quantidade de Arquivos: " + files.Length);
+        Console.WriteLine("Quantidade de Arquivos Encontrados: " + files.Length);
         List<ListMDJson> MDObject = [];
 
         foreach (string file in files)

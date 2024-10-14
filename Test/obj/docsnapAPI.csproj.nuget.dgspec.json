@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/bugalinux/Programming/Docsnap/Test/docsnapAPI.csproj": {}
+    "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Test\\docsnapAPI.csproj": {}
   },
   "projects": {
-    "/home/bugalinux/Programming/Docsnap/Docsnap/Docsnap.csproj": {
+    "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Docsnap\\Docsnap.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/bugalinux/Programming/Docsnap/Docsnap/Docsnap.csproj",
+        "projectUniqueName": "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Docsnap\\Docsnap.csproj",
         "projectName": "Docsnap",
-        "projectPath": "/home/bugalinux/Programming/Docsnap/Docsnap/Docsnap.csproj",
-        "packagesPath": "/home/bugalinux/.nuget/packages/",
-        "outputPath": "/home/bugalinux/Programming/Docsnap/Docsnap/obj/",
+        "projectPath": "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Docsnap\\Docsnap.csproj",
+        "packagesPath": "C:\\Users\\deusiel.brizante\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Docsnap\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/bugalinux/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\deusiel.brizante\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,6 +32,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -66,21 +71,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.110/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/bugalinux/Programming/Docsnap/Test/docsnapAPI.csproj": {
+    "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Test\\docsnapAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/bugalinux/Programming/Docsnap/Test/docsnapAPI.csproj",
+        "projectUniqueName": "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Test\\docsnapAPI.csproj",
         "projectName": "docsnapAPI",
-        "projectPath": "/home/bugalinux/Programming/Docsnap/Test/docsnapAPI.csproj",
-        "packagesPath": "/home/bugalinux/.nuget/packages/",
-        "outputPath": "/home/bugalinux/Programming/Docsnap/Test/obj/",
+        "projectPath": "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Test\\docsnapAPI.csproj",
+        "packagesPath": "C:\\Users\\deusiel.brizante\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Test\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/bugalinux/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\deusiel.brizante\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -92,8 +97,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/bugalinux/Programming/Docsnap/Docsnap/Docsnap.csproj": {
-                "projectPath": "/home/bugalinux/Programming/Docsnap/Docsnap/Docsnap.csproj"
+              "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Docsnap\\Docsnap.csproj": {
+                "projectPath": "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Docsnap\\Docsnap.csproj"
               }
             }
           }
@@ -102,6 +107,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -136,7 +146,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.110/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

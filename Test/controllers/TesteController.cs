@@ -12,14 +12,14 @@ namespace docsnapAPI.Controllers
             return Ok(new { mensagem = "Olá, mundo!" });
         }
 
-        [HttpPost("criar")]
-        public IActionResult CriarDados([FromBody] Dados dados)
+        [HttpPost("criar/123")]
+        public IActionResult TesteBatata([FromBody] Dados dados)
         {
             return CreatedAtAction(nameof(ObterDados), dados);
         }
 
-        [HttpDelete("andar/{pe:int}")]
-        public IActionResult DeletarDados(int pe)
+        [HttpDelete("andar/tururu/{pe:int}")]
+        public IActionResult Teste123(int pe)
         {
             return NoContent();
         }

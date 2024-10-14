@@ -1,16 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "EuRPXtKlsVb84S/+PPEsYQz1kAkH9KLkGYQl791oQzK9k0nY29UdVjdzR8tV5agob4hlqUU/3BeYNDjifc0V/w==",
+  "dgSpecHash": "1R3EMZQVYwvX51rbOn79A+RoPDlHeGjqlKOhc2EcJcuoDDCmpZHGPOkSwRer7YYwaHGbuB55XtG1mblsyntghw==",
   "success": true,
-  "projectFilePath": "/home/bugalinux/Programming/Docsnap/Docsnap/Docsnap.csproj",
+  "projectFilePath": "C:\\Users\\deusiel.brizante\\Downloads\\Docsnap\\Docsnap\\Docsnap.csproj",
   "expectedPackageFiles": [
-    "/home/bugalinux/.nuget/packages/markdig.signed/0.37.0/markdig.signed.0.37.0.nupkg.sha512",
-    "/home/bugalinux/.nuget/packages/microsoft.aspnetcore.http.abstractions/2.2.0/microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
-    "/home/bugalinux/.nuget/packages/microsoft.aspnetcore.http.features/2.2.0/microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
-    "/home/bugalinux/.nuget/packages/microsoft.extensions.primitives/2.2.0/microsoft.extensions.primitives.2.2.0.nupkg.sha512",
-    "/home/bugalinux/.nuget/packages/system.memory/4.5.1/system.memory.4.5.1.nupkg.sha512",
-    "/home/bugalinux/.nuget/packages/system.runtime.compilerservices.unsafe/4.5.1/system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
-    "/home/bugalinux/.nuget/packages/system.text.encodings.web/4.5.0/system.text.encodings.web.4.5.0.nupkg.sha512"
+    "C:\\Users\\deusiel.brizante\\.nuget\\packages\\markdig.signed\\0.37.0\\markdig.signed.0.37.0.nupkg.sha512",
+    "C:\\Users\\deusiel.brizante\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\deusiel.brizante\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "C:\\Users\\deusiel.brizante\\.nuget\\packages\\microsoft.extensions.primitives\\2.2.0\\microsoft.extensions.primitives.2.2.0.nupkg.sha512",
+    "C:\\Users\\deusiel.brizante\\.nuget\\packages\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
+    "C:\\Users\\deusiel.brizante\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
+    "C:\\Users\\deusiel.brizante\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }

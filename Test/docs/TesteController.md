@@ -2,7 +2,7 @@
        Controller route: api/Teste
 ## @@ObterDados
        /batata
-## @@DeletarDados
-       api/Teste/andar/{pe:int}
-## @@CriarDados
-       api/Teste/criar
+## @@TesteBatata
+       api/Teste/criar/123
+## @@Teste123
+       api/Teste/andar/tururu/{pe:int}

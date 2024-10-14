@@ -24,7 +24,7 @@ public static class Docsnap
         CheckDirectory.IfNotExistsCreateDirectory(docsPath);
         MethodsAndController.ScanAllControllers(docsPath);
 
-        List<ListMDJson> html = HTMLConverter.ConvertMDToPDF(docsPath);
+        List<ListMDJson> html = HTMLConverter.ConvertMDToHTML(docsPath);
 
         app.Use(async (context, next) =>
         {
@@ -39,7 +39,7 @@ public static class Docsnap
         });
 
         Timer.Stop();
-        Console.WriteLine("Process time: " + Timer.ElapsedMilliseconds);
+        Console.WriteLine("Process Docsnap time: " + Timer.ElapsedMilliseconds);
         return app;
     }
 
