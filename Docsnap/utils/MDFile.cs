@@ -17,7 +17,7 @@ public class MDFile
         IEnumerable<MethodsWithRoutes> methods = MethodsAndController.ScanAllMethods(controller);
         foreach ((MethodInfo method, string route) in methods)
         {
-            string fullRoute = route[0] == '/' ? route : $"{classRoute}/{route}";
+            string fullRoute = !string.IsNullOrEmpty(route) ? route[0] == '/' ? route : $"{classRoute}/{route}" : string.Empty;
 
             content.AppendLine($"## @@{method.Name}");
             content.AppendLine($"       {fullRoute}");

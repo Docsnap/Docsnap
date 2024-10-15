@@ -5,9 +5,6 @@ using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace Docsnap.utils;
 
-/// <summary>
-/// This class is responsible to see all of things about the project linked to this library 
-/// </summary>
 public class MethodsAndController
 {
     public static void ScanAllControllers(string Path)

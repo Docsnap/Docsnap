@@ -13,13 +13,13 @@ namespace docsnapAPI.Controllers
         }
 
         [HttpPost("criar/123")]
-        public IActionResult TesteBatata([FromBody] Dados dados)
+        public IActionResult TesteBatataPotente([FromBody] Dados dados)
         {
             return CreatedAtAction(nameof(ObterDados), dados);
         }
 
-        [HttpDelete("andar/tururu/{pe:int}")]
-        public IActionResult Teste123(int pe)
+        [HttpDelete("andar/coisa/{pe:int}")]
+        public IActionResult Coisa(int pe)
         {
             return NoContent();
         }

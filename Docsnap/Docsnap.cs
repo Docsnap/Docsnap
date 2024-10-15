@@ -43,7 +43,6 @@ public static class Docsnap
         return app;
     }
 
-    //! todo: Change this name because can confuse the users (Path to access in API or path to put the documents)
     public static IApplicationBuilder ChangeDocsnapPath(this IApplicationBuilder app, string path)
     {
         docsPath = Directory.GetCurrentDirectory() + path;

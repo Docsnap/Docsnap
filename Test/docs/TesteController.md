@@ -2,7 +2,8 @@
        Controller route: api/Teste
 ## @@ObterDados
        /batata
-## @@TesteBatata
+## @@TesteBatataPotente
        api/Teste/criar/123
-## @@Teste123
-       api/Teste/andar/tururu/{pe:int}
+este método é feito para todas as batatas
+## @@Coisa
+       api/Teste/andar/coisa/{pe:int}

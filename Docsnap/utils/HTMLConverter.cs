@@ -21,7 +21,7 @@ public partial class HTMLConverter
             {
                 string lineMd = Markdown.ToHtml(line);
 
-                if (ContainsSpecificTag(lineMd, "h2"))
+                if (ContainsTagHTML(lineMd, "h2"))
                 {
                     if (!string.IsNullOrEmpty(md.TitleMD))
                     {
@@ -44,8 +44,7 @@ public partial class HTMLConverter
         return MDObject;
     }
 
-    // Função auxiliar para detectar tags HTML
-    private static bool ContainsSpecificTag(string line, string tag)
+    private static bool ContainsTagHTML(string line, string tag)
     {
         Regex tagPattern = new($@"<\s*{tag}\b[^>]*>(.*?)<\/\s*{tag}\s*>");
         return tagPattern.IsMatch(line);
