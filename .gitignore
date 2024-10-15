@@ -1,4 +1,31 @@
+# Ignorar pastas bin e obj de compilação
 /Test/obj/
 /Test/bin/
 Docsnap/bin/
 Docsnap/obj/
+
+# Ignorar arquivos temporários do Visual Studio
+.vscode/
+
+# Arquivos de logs e caches
+*.log
+*.cache
+
+# Arquivos de build
+*.dll
+*.pdb
+*.exe
+*.json
+
+# Arquivos de configuração do projeto (gerados automaticamente)
+*.nuget.g.props
+*.nuget.g.targets
+
+# Ignorar arquivos de diretórios gerados por build
+**/bin/
+**/obj/
+
+# Ignorar arquivos gerados automaticamente
+*.AssemblyInfoInputs.cache
+*.FileListAbsolute.txt
+*.GeneratedMSBuildEditorConfig.editorconfig
