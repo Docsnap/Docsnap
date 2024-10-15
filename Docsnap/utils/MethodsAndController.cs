@@ -94,7 +94,6 @@ public class MethodsAndController
                 else
                 {
                     routeUpdated = true;
-                    checkAndUpdate.FileLines[i + 1] = $"       {checkAndUpdate.Route}";
                 }
             }
         }

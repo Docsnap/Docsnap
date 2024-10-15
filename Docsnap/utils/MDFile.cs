@@ -110,7 +110,6 @@ public class MDFile
         return updateContent;
     }
 
-
     private static StringBuilder UpdateRouteInMDFile(CheckAndUpdateMethods checkAndUpdate)
     {
         StringBuilder updatedContent = new();
