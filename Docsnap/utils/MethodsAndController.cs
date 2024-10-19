@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace Docsnap.utils;
 
-public class MethodsAndController
+internal class MethodsAndController
 {
-    public static void ScanAllControllers(string Path)
+    internal static void ScanAllControllers(string Path)
     {
         Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
 
@@ -31,7 +31,7 @@ public class MethodsAndController
         }
     }
 
-    public static string GetControllerRoute(Type controller)
+    internal static string GetControllerRoute(Type controller)
     {
         RouteAttribute? routeAttribute = controller.GetCustomAttribute<RouteAttribute>();
 
@@ -43,7 +43,7 @@ public class MethodsAndController
         return string.Empty;
     }
 
-    public static IEnumerable<MethodsWithRoutes> ScanAllMethods(Type controller)
+    internal static IEnumerable<MethodsWithRoutes> ScanAllMethods(Type controller)
     {
         IEnumerable<MethodInfo> methods = controller.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
                                    .Where(m => m.IsPublic && m.DeclaringType == controller);
@@ -76,7 +76,7 @@ public class MethodsAndController
         }
     }
 
-    public static bool CheckAndUpdateAllMethods(CheckAndUpdateMethods checkAndUpdate, out bool needToUpdate, List<string> fileLines)
+    internal static bool CheckAndUpdateAllMethods(CheckAndUpdateMethods checkAndUpdate, out bool needToUpdate, List<string> fileLines)
     {
         needToUpdate = false;
         bool methodExists = false;

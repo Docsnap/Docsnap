@@ -2,25 +2,25 @@ using Docsnap.interfaces;
 
 namespace Docsnap.Models;
 
-public class MDJson : IMDJson
+internal class MDJson : IMDJson
 {
-    public string TitleMD { get; set; }
-    public List<string> BodyMD { get; set; }
+    public string Controller { get; set; }
+    public List<string> ContentController { get; set; }
 
-    public MDJson(string title, List<string> body)
+    public MDJson(string controller, List<string> contentController)
     {
-        TitleMD = title;
-        BodyMD = body;
+        Controller = controller;
+        ContentController = contentController;
     }
 
     public MDJson()
     {
-        TitleMD = "";
-        BodyMD = [];
+        Controller = "";
+        ContentController = [];
     }
 }
 
-public class ListMDJson
+internal class ListMDJson
 {
     public List<MDJson> MDJsonList { get; set; }
 

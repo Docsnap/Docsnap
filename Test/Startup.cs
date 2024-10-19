@@ -1,4 +1,5 @@
 using Docsnap;
+using Docsnap.Models;
 
 namespace docsnapAPI;
 

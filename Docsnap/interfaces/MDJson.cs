@@ -1,7 +1,7 @@
 namespace Docsnap.interfaces;
 
-public interface IMDJson
+internal interface IMDJson
 {
-    public string TitleMD { get; set; }
-    List<string> BodyMD { get; set; }
+    public string Controller { get; set; }
+    List<string> ContentController { get; set; }
 }

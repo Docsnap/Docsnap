@@ -4,12 +4,12 @@ using Docsnap.Models;
 
 namespace Docsnap.utils;
 
-public class WriteHtml
+internal class WriteHtml
 {
     private readonly static JsonSerializerOptions jsonOptions = new() { WriteIndented = true };
     private readonly static Assembly assembly = Assembly.GetExecutingAssembly();
 
-    public static async Task<string> WriteToHtml(List<ListMDJson> htmlContent)
+    internal static async Task<string> WriteToHtml(List<ListMDJson> htmlContent)
     {
         Dictionary<string, string> resources = new()
         {

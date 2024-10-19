@@ -4,9 +4,9 @@ using Markdig;
 
 namespace Docsnap.utils;
 
-public partial class HTMLConverter
+internal partial class HTMLConverter
 {
-    public static List<ListMDJson> ConvertMDToHTML(string Path)
+    internal static List<ListMDJson> ConvertMDToHTML(string Path)
     {
         string[] files = Directory.GetFiles(Path, "*.md");
         Console.WriteLine("Quantidade de Arquivos Encontrados: " + files.Length);
@@ -23,17 +23,17 @@ public partial class HTMLConverter
 
                 if (ContainsTagHTML(lineMd, "h2"))
                 {
-                    if (!string.IsNullOrEmpty(md.TitleMD))
+                    if (!string.IsNullOrEmpty(md.Controller))
                     {
                         ListMd.MDJsonList.Add(md);
                         md = new();
                     }
 
-                    md.TitleMD = lineMd;
+                    md.Controller = lineMd;
                 }
                 else
                 {
-                    md.BodyMD.Add(lineMd);
+                    md.ContentController.Add(lineMd);
                 }
             }
 

@@ -4,9 +4,9 @@ using Docsnap.data;
 
 namespace Docsnap.utils;
 
-public class MDFile
+internal class MDFile
 {
-    public static void CreateMDFiles(string pathController, Type controller)
+    internal static void CreateMDFiles(string pathController, Type controller)
     {
         StringBuilder content = new();
 
@@ -26,7 +26,7 @@ public class MDFile
         File.WriteAllText(pathController, content.ToString());
     }
 
-    public static void AjustRoutesMDFiles(string pathController, Type controller)
+    internal static void AjustRoutesMDFiles(string pathController, Type controller)
     {
         List<string> existingFileLines = [.. File.ReadAllLines(pathController)];
         IEnumerable<MethodsWithRoutes> methods = MethodsAndController.ScanAllMethods(controller);

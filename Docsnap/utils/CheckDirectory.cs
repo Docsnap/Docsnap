@@ -1,8 +1,8 @@
 namespace Docsnap.utils;
 
-public class CheckDirectory
+internal class CheckDirectory
 {
-    public static void IfNotExistsCreateDirectory(string Path)
+    internal static void IfNotExistsCreateDirectory(string Path)
     {
         if (!Directory.Exists(Path))
         {
