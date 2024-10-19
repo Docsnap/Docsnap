@@ -20,18 +20,18 @@ internal class DocumentationEndpoint : IDocumentationEndpoint
     }
 }
 
-internal class DocumentationAPI
+internal class DocumentationController
 {
     public string Controller { get; set; }
     public List<DocumentationEndpoint> MDJsonList { get; set; }
 
-    public DocumentationAPI(string controller, List<DocumentationEndpoint> list)
+    public DocumentationController(string controller, List<DocumentationEndpoint> list)
     {
         Controller = controller;
         MDJsonList = list;
     }
 
-    public DocumentationAPI()
+    public DocumentationController()
     {
         Controller = string.Empty;
         MDJsonList = [];

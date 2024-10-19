@@ -24,13 +24,13 @@ public static class Docsnap
         CheckDirectory.IfNotExistsCreateDirectory(docsPath);
         MethodsAndController.ScanAllControllers(docsPath);
 
-        List<DocumentationAPI> html = HTMLConverter.ConvertMDToHTML(docsPath);
+        List<DocumentationController> APIHtml = HTMLConverter.ConvertMDToHTML(docsPath);
 
         app.Use(async (context, next) =>
         {
             if (context.Request.Path.StartsWithSegments("/docsnap"))
             {
-                string htmlContent = await WriteHtml.WriteToHtml(html);
+                string htmlContent = await WriteHtml.WriteToHtml(APIHtml);
                 context.Response.ContentType = "text/html";
                 await context.Response.WriteAsync(htmlContent);
             }

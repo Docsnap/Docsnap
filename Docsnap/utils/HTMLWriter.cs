@@ -9,7 +9,7 @@ internal class WriteHtml
     private readonly static JsonSerializerOptions serializerOptions = new() { WriteIndented = true };
     private readonly static Assembly assembly = Assembly.GetExecutingAssembly();
 
-    internal static async Task<string> WriteToHtml(List<DocumentationAPI> APIContent)
+    internal static async Task<string> WriteToHtml(List<DocumentationController> APIContent)
     {
         Dictionary<string, string> resources = new()
         {

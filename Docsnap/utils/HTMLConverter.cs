@@ -6,15 +6,15 @@ namespace Docsnap.utils;
 
 internal partial class HTMLConverter
 {
-    internal static List<DocumentationAPI> ConvertMDToHTML(string Path)
+    internal static List<DocumentationController> ConvertMDToHTML(string Path)
     {
         string[] files = Directory.GetFiles(Path, "*.md");
         Console.WriteLine("Quantidade de Arquivos Encontrados: " + files.Length);
-        List<DocumentationAPI> APIContent = [];
+        List<DocumentationController> APIContent = [];
 
         foreach (string file in files)
         {
-            DocumentationAPI APIController = new();
+            DocumentationController APIController = new();
             DocumentationEndpoint Endpoint = new();
 
             // Ajustar para verificar se está no nosso padrão de tags para salvar no lugar correto.
