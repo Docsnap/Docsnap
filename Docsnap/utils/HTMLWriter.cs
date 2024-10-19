@@ -24,13 +24,10 @@ public class WriteHtml
 
         foreach (KeyValuePair<string, string> resource in resources)
         {
-            string resourceName = resource.Key;
-            string placeholder = $"{{{{{resource.Value}}}}}";
-
-            Stream stream = assembly.GetManifestResourceStream(resourceName) ?? throw new Exception($"Resource '{resourceName}' not found.");
+            Stream stream = assembly.GetManifestResourceStream(resource.Key) ?? throw new Exception($"Resource '{resource.Key}' not found.");
             StreamReader reader = new(stream);
 
-            fileAssembly = fileAssembly.Replace(placeholder, await reader.ReadToEndAsync());
+            fileAssembly = fileAssembly.Replace($"{{{{{resource.Value}}}}}", await reader.ReadToEndAsync());
         }
 
         string jsonContent = JsonSerializer.Serialize(htmlContent, jsonOptions);
