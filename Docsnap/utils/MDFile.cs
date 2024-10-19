@@ -29,7 +29,7 @@ public class MDFile
     public static void AjustRoutesMDFiles(string pathController, Type controller)
     {
         List<string> existingFileLines = [.. File.ReadAllLines(pathController)];
-        StringBuilder content = existingFileLines.Aggregate(new StringBuilder(), (stringBuilder, lines) => stringBuilder.AppendLine(lines));
+        //  StringBuilder content = existingFileLines.Aggregate(new StringBuilder(), (stringBuilder, lines) => stringBuilder.AppendLine(lines));
 
         IEnumerable<MethodsWithRoutes> methods = MethodsAndController.ScanAllMethods(controller);
         foreach ((MethodInfo method, string route) in methods)
@@ -38,92 +38,96 @@ public class MDFile
             string fullRoute = !string.IsNullOrEmpty(route) ? route[0] == '/' ? route : $"{classRoute}/{route}" : string.Empty;
 
             bool methodExists = MethodsAndController.CheckAndUpdateAllMethods(new CheckAndUpdateMethods(
-                existingFileLines,
                 method.Name,
                 fullRoute
-            ), out bool routeUpdated);
+            ), out bool needToUpdate, existingFileLines);
 
             if (!methodExists)
             {
-                content = UpdateMethodInMDFile(new CheckAndUpdateMethods(
-                    existingFileLines,
+                UpdateMethodInMDFile(new CheckAndUpdateMethods(
                     method.Name,
                     fullRoute
                 ), ref existingFileLines);
             }
-            else if (routeUpdated)
+            else if (needToUpdate)
             {
-                content = UpdateRouteInMDFile(new CheckAndUpdateMethods(
-                    existingFileLines,
+                UpdateRouteInMDFile(new CheckAndUpdateMethods(
                     method.Name,
                     fullRoute
-                ));
+                ), ref existingFileLines);
             }
         }
 
+        StringBuilder content = existingFileLines.Aggregate(new StringBuilder(), (stringBuilder, lines) => stringBuilder.AppendLine(lines));
         File.WriteAllText(pathController, content.ToString());
     }
 
-    private static StringBuilder UpdateMethodInMDFile(CheckAndUpdateMethods checkAndUpdate, ref List<string> FileLines)
+    private static void UpdateMethodInMDFile(CheckAndUpdateMethods checkAndUpdate, ref List<string> fileLines)
     {
-        StringBuilder tempContent = new();
-        StringBuilder updateContent = new();
+        //     StringBuilder tempContent = new();
+        //     StringBuilder updateContent = new();
         bool methodUpdated = false;
 
-        for (int i = 0; i < checkAndUpdate.FileLines.Count; i++)
+        for (int i = 0; i < fileLines.Count; i++)
         {
-            updateContent.AppendLine(checkAndUpdate.FileLines[i]);
+            // updateContent.AppendLine(checkAndUpdate.FileLines[i]);
 
-            if (checkAndUpdate.FileLines[i].Trim() == checkAndUpdate.Route)
+            if (fileLines[i].Trim() == checkAndUpdate.Route)
             {
-                if (checkAndUpdate.FileLines[i - 1].StartsWith("## @@"))
+                if (fileLines[i - 1].StartsWith("## @@"))
                 {
-                    for (int j = 0; j < i - 1; j++)
-                    {
-                        tempContent.AppendLine(checkAndUpdate.FileLines[j]);
-                    }
+                    // for (int j = 0; j < i - 1; j++)
+                    // {
+                    //     tempContent.AppendLine(checkAndUpdate.FileLines[j]);
+                    // }
 
-                    FileLines[i - 1] = $"## @@{checkAndUpdate.MethodName}";
-                    FileLines[i] = $"       {checkAndUpdate.Route}";
+                    //Adicionar a linha acima em vez de sobrescrever ela ???
+                    fileLines[i - 1] = $"## @@{checkAndUpdate.MethodName}";
+                    fileLines[i] = $"       {checkAndUpdate.Route}";
 
-                    tempContent.AppendLine($"## @@{checkAndUpdate.MethodName}");
-                    tempContent.AppendLine($"       {checkAndUpdate.Route}");
+                    // tempContent.AppendLine($"## @@{checkAndUpdate.MethodName}");
+                    // tempContent.AppendLine($"       {checkAndUpdate.Route}");
 
-                    updateContent.Clear();
-                    updateContent = tempContent;
+                    // updateContent.Clear();
+                    // updateContent = tempContent;
 
                     methodUpdated = true;
                 }
             }
         }
 
-        updateContent = tempContent;
+        // updateContent = tempContent;
 
         if (!methodUpdated)
         {
-            updateContent.Append(updateContent);
-            updateContent.AppendLine($"## @@{checkAndUpdate.MethodName}");
-            updateContent.AppendLine($"       {checkAndUpdate.Route}");
+            fileLines.Add($"## @@{checkAndUpdate.MethodName}");
+            fileLines.Add($"       {checkAndUpdate.Route}");
+            // updateContent.Append(updateContent);
+            // updateContent.AppendLine($"## @@{checkAndUpdate.MethodName}");
+            // updateContent.AppendLine($"       {checkAndUpdate.Route}");
         }
 
-        Console.WriteLine(updateContent);
-        return updateContent;
+        // Console.WriteLine(updateContent);
+        // return updateContent;
     }
 
-    private static StringBuilder UpdateRouteInMDFile(CheckAndUpdateMethods checkAndUpdate)
+    private static void UpdateRouteInMDFile(CheckAndUpdateMethods checkAndUpdate, ref List<string> fileLines)
     {
-        StringBuilder updatedContent = new();
+       // StringBuilder updatedContent = new();
+       List<string> updatedContent = [];
 
-        for (int i = 0; i < checkAndUpdate.FileLines.Count; i++)
+        for (int i = 0; i < fileLines.Count; i++)
         {
-            updatedContent.AppendLine(checkAndUpdate.FileLines[i]);
-            if (checkAndUpdate.FileLines[i].StartsWith($"## @@{checkAndUpdate.MethodName}"))
+            updatedContent.Add(fileLines[i]);
+            if (fileLines[i].StartsWith($"## @@{checkAndUpdate.MethodName}"))
             {
-                updatedContent.AppendLine($"       {checkAndUpdate.Route}");
+           //     updatedContent.AppendLine($"       {checkAndUpdate.Route}");
+                updatedContent.Add($"       {checkAndUpdate.Route}");
                 i++;
             }
         }
 
-        return updatedContent;
+        fileLines = updatedContent;
+       // return updatedContent;
     }
 }

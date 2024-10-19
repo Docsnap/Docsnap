@@ -16,20 +16,17 @@ public struct MethodsWithRoutes(MethodInfo method, string route)
 
 public struct CheckAndUpdateMethods
 {
-    public List<string> FileLines;
     public string MethodName;
     public string Route;
 
-    public CheckAndUpdateMethods(List<string> fileLines, string methodName, string fullRoute)
+    public CheckAndUpdateMethods(string methodName, string fullRoute)
     {
-        FileLines = fileLines;
         MethodName = methodName;
         Route = fullRoute;
     }
 
     public CheckAndUpdateMethods()
     {
-        FileLines = [];
         MethodName = string.Empty;
         Route = string.Empty;
     }

@@ -76,24 +76,20 @@ public class MethodsAndController
         }
     }
 
-    public static bool CheckAndUpdateAllMethods(CheckAndUpdateMethods checkAndUpdate, out bool routeUpdated)
+    public static bool CheckAndUpdateAllMethods(CheckAndUpdateMethods checkAndUpdate, out bool needToUpdate, List<string> fileLines)
     {
-        routeUpdated = false;
+        needToUpdate = false;
         bool methodExists = false;
 
-        for (int i = 0; i < checkAndUpdate.FileLines.Count - 1; i++)
+        for (int i = 0; i < fileLines.Count - 1; i++)
         {
-            if (checkAndUpdate.FileLines[i].StartsWith($"## @@{checkAndUpdate.MethodName}"))
+            if (fileLines[i].StartsWith($"## @@{checkAndUpdate.MethodName}"))
             {
                 methodExists = true;
 
-                if (checkAndUpdate.FileLines[i + 1].Trim() == checkAndUpdate.Route)
+                if (fileLines[i + 1].Trim() != checkAndUpdate.Route)
                 {
-                    continue;
-                }
-                else
-                {
-                    routeUpdated = true;
+                    needToUpdate = true;
                 }
             }
         }
