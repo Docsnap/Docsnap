@@ -6,10 +6,10 @@ namespace Docsnap.utils;
 
 internal class WriteHtml
 {
-    private readonly static JsonSerializerOptions jsonOptions = new() { WriteIndented = true };
+    private readonly static JsonSerializerOptions serializerOptions = new() { WriteIndented = true };
     private readonly static Assembly assembly = Assembly.GetExecutingAssembly();
 
-    internal static async Task<string> WriteToHtml(List<ListMDJson> htmlContent)
+    internal static async Task<string> WriteToHtml(List<DocumentationAPI> APIContent)
     {
         Dictionary<string, string> resources = new()
         {
@@ -30,8 +30,8 @@ internal class WriteHtml
             fileAssembly = fileAssembly.Replace($"{{{{{resource.Value}}}}}", await reader.ReadToEndAsync());
         }
 
-        string jsonContent = JsonSerializer.Serialize(htmlContent, jsonOptions);
-        fileAssembly = fileAssembly.Replace("{{MARKDOWN_CONTENT}}", jsonContent);
+        string content = JsonSerializer.Serialize(APIContent, serializerOptions);
+        fileAssembly = fileAssembly.Replace("{{MARKDOWN_CONTENT}}", content);
 
         return fileAssembly;
     }

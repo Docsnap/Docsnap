@@ -24,7 +24,7 @@ public static class Docsnap
         CheckDirectory.IfNotExistsCreateDirectory(docsPath);
         MethodsAndController.ScanAllControllers(docsPath);
 
-        List<ListMDJson> html = HTMLConverter.ConvertMDToHTML(docsPath);
+        List<DocumentationAPI> html = HTMLConverter.ConvertMDToHTML(docsPath);
 
         app.Use(async (context, next) =>
         {

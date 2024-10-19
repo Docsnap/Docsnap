@@ -6,42 +6,44 @@ namespace Docsnap.utils;
 
 internal partial class HTMLConverter
 {
-    internal static List<ListMDJson> ConvertMDToHTML(string Path)
+    internal static List<DocumentationAPI> ConvertMDToHTML(string Path)
     {
         string[] files = Directory.GetFiles(Path, "*.md");
         Console.WriteLine("Quantidade de Arquivos Encontrados: " + files.Length);
-        List<ListMDJson> MDObject = [];
+        List<DocumentationAPI> APIContent = [];
 
         foreach (string file in files)
         {
-            ListMDJson ListMd = new();
-            MDJson md = new();
+            DocumentationAPI APIController = new();
+            DocumentationEndpoint Endpoint = new();
 
+            // Ajustar para verificar se está no nosso padrão de tags para salvar no lugar correto.
+            // Verificar o conteúdo enquanto MD para que depois que for feita a conversão, possa ser salvo no lugar correto.
             foreach (string line in File.ReadAllLines(file))
             {
-                string lineMd = Markdown.ToHtml(line);
+                string lineHTML = Markdown.ToHtml(line);
 
-                if (ContainsTagHTML(lineMd, "h2"))
+                if (ContainsTagHTML(lineHTML, "h2"))
                 {
-                    if (!string.IsNullOrEmpty(md.Controller))
+                    if (!string.IsNullOrEmpty(Endpoint.Endpoint))
                     {
-                        ListMd.MDJsonList.Add(md);
-                        md = new();
+                        APIController.MDJsonList.Add(Endpoint);
+                        Endpoint = new();
                     }
 
-                    md.Controller = lineMd;
+                    Endpoint.Endpoint = lineHTML;
                 }
                 else
                 {
-                    md.ContentController.Add(lineMd);
+                    Endpoint.ContentEndpoint.Add(lineHTML);
                 }
             }
 
-            ListMd.MDJsonList.Add(md);
-            MDObject.Add(ListMd);
+            APIController.MDJsonList.Add(Endpoint);
+            APIContent.Add(APIController);
         }
 
-        return MDObject;
+        return APIContent;
     }
 
     private static bool ContainsTagHTML(string line, string tag)
