@@ -15,7 +15,7 @@ internal partial class HTMLConverter
         foreach (string file in files)
         {
             DocumentationController APIController = new();
-            DocumentationEndpoint Endpoint = new();
+            DocumentationEndpoint APIEndpoint = new();
 
             // Ajustar para verificar se está no nosso padrão de tags para salvar no lugar correto.
             // Verificar o conteúdo enquanto MD para que depois que for feita a conversão, possa ser salvo no lugar correto.
@@ -25,21 +25,21 @@ internal partial class HTMLConverter
 
                 if (ContainsTagHTML(lineHTML, "h2"))
                 {
-                    if (!string.IsNullOrEmpty(Endpoint.Endpoint))
+                    if (!string.IsNullOrEmpty(APIEndpoint.Endpoint))
                     {
-                        APIController.MDJsonList.Add(Endpoint);
-                        Endpoint = new();
+                        APIController.MDJsonList.Add(APIEndpoint);
+                        APIEndpoint = new();
                     }
 
-                    Endpoint.Endpoint = lineHTML;
+                    APIEndpoint.Endpoint = lineHTML;
                 }
                 else
                 {
-                    Endpoint.ContentEndpoint.Add(lineHTML);
+                    APIEndpoint.ContentEndpoint.Add(lineHTML);
                 }
             }
 
-            APIController.MDJsonList.Add(Endpoint);
+            APIController.MDJsonList.Add(APIEndpoint);
             APIContent.Add(APIController);
         }
 
