@@ -1,13 +1,12 @@
-namespace Docsnap.utils
+namespace Docsnap.utils;
+
+public class CheckDirectory
 {
-    public class CheckDirectory
+    public static void IfNotExistsCreateDirectory(string Path)
     {
-        public static void IfNotExistsCreateDirectory(string Path)
+        if (!Directory.Exists(Path))
         {
-            if (!Directory.Exists(Path))
-            {
-                Directory.CreateDirectory(Path);
-            }
+            Directory.CreateDirectory(Path);
         }
     }
 }
