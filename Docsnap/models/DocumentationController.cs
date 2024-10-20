@@ -4,36 +4,46 @@ namespace Docsnap.Models;
 
 internal class DocumentationEndpoint : IDocumentationEndpoint
 {
-    public string Endpoint { get; set; }
+    public string EndpointName { get; set; }
+    public string EndpointMethod { get; set; }
+    public string EndpointRoute { get; set; }
     public List<string> ContentEndpoint { get; set; }
 
-    public DocumentationEndpoint(string endpoint, List<string> contentEndpoint)
+
+    public DocumentationEndpoint(string endpoint, string method, string route, List<string> contentEndpoint)
     {
-        Endpoint = endpoint;
+        EndpointName = endpoint;
+        EndpointMethod = method;
+        EndpointRoute = route;
         ContentEndpoint = contentEndpoint;
     }
 
     public DocumentationEndpoint()
     {
-        Endpoint = string.Empty;
+        EndpointName = string.Empty;
+        EndpointMethod = string.Empty;
+        EndpointRoute = string.Empty;
         ContentEndpoint = [];
     }
 }
 
 internal class DocumentationController
 {
-    public string Controller { get; set; }
-    public List<DocumentationEndpoint> MDJsonList { get; set; }
+    public string ControllerName { get; set; }
+    public string ControllerRoute { get; set; }
+    public List<DocumentationEndpoint> EndpointsCollection { get; set; }
 
-    public DocumentationController(string controller, List<DocumentationEndpoint> list)
+    public DocumentationController(string controller, string controllerRoute, List<DocumentationEndpoint> collection)
     {
-        Controller = controller;
-        MDJsonList = list;
+        ControllerName = controller;
+        ControllerRoute = controllerRoute;
+        EndpointsCollection = collection;
     }
 
     public DocumentationController()
     {
-        Controller = string.Empty;
-        MDJsonList = [];
+        ControllerName = string.Empty;
+        ControllerRoute = string.Empty;
+        EndpointsCollection = [];
     }
 }

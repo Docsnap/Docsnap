@@ -18,7 +18,7 @@ namespace docsnapAPI.Controllers
             return CreatedAtAction(nameof(ObterDados), dados);
         }
 
-        [HttpDelete("andar/coisa/{pe:int}")]
+        [HttpPost("andar/{pe:int}")]
         public IActionResult Coisa(int pe)
         {
             return NoContent();

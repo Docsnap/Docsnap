@@ -1,33 +1,36 @@
-using System.Reflection;
-
 namespace Docsnap.data;
 
-public struct MethodsWithRoutes(MethodInfo method, string route)
+public struct MethodsWithRoutesAndEndpoint(string endpoint, string method, string route)
 {
-    public MethodInfo Method = method;
+    public string Endpoint = endpoint;
+    public string MethodHttp = method;
     public string Route = route;
 
-    public readonly void Deconstruct(out MethodInfo method, out string route)
+    public readonly void Deconstruct(out string endpoint, out string method, out string route)
     {
-        method = Method;
+        endpoint = Endpoint;
+        method = MethodHttp;
         route = Route;
     }
 }
 
-public struct CheckAndUpdateMethods
+public struct CheckAndUpdateEndpoints
 {
-    public string MethodName;
+    public string Endpoint;
+    public string MethodHttp;
     public string Route;
 
-    public CheckAndUpdateMethods(string methodName, string fullRoute)
+    public CheckAndUpdateEndpoints(string endpoint, string method, string fullRoute)
     {
-        MethodName = methodName;
+        Endpoint = endpoint;
+        MethodHttp = method;
         Route = fullRoute;
     }
 
-    public CheckAndUpdateMethods()
+    public CheckAndUpdateEndpoints()
     {
-        MethodName = string.Empty;
+        Endpoint = string.Empty;
+        MethodHttp = string.Empty;
         Route = string.Empty;
     }
 }

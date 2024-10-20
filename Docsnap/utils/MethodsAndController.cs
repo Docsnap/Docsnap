@@ -43,7 +43,7 @@ internal class MethodsAndController
         return string.Empty;
     }
 
-    internal static IEnumerable<MethodsWithRoutes> ScanAllMethods(Type controller)
+    internal static IEnumerable<MethodsWithRoutesAndEndpoint> ScanAllMethods(Type controller)
     {
         IEnumerable<MethodInfo> methods = controller.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
                                    .Where(m => m.IsPublic && m.DeclaringType == controller);
@@ -57,6 +57,7 @@ internal class MethodsAndController
             foreach (Attribute attribute in routesAttributes)
             {
                 string route = string.Empty;
+                string httpMethod = string.Empty;
 
                 if (attribute is RouteAttribute routeAttribute)
                 {
@@ -65,35 +66,37 @@ internal class MethodsAndController
                 else if (attribute is HttpMethodAttribute httpAttribute)
                 {
                     route = httpAttribute.Template ?? string.Empty;
+                    httpMethod = httpAttribute.HttpMethods.FirstOrDefault() ?? string.Empty;
                 }
 
-                yield return new MethodsWithRoutes()
+                yield return new MethodsWithRoutesAndEndpoint()
                 {
-                    Method = method,
+                    Endpoint = method.Name,
+                    MethodHttp = httpMethod,
                     Route = route
                 };
             }
         }
     }
 
-    internal static bool CheckAndUpdateAllMethods(CheckAndUpdateMethods checkAndUpdate, out bool needToUpdate, List<string> fileLines)
+    internal static bool CheckAndUpdateAllEndpoints(CheckAndUpdateEndpoints checkAndUpdate, out bool needToUpdate, List<string> fileLines)
     {
         needToUpdate = false;
-        bool methodExists = false;
+        bool endpointExists = false;
 
         for (int i = 0; i < fileLines.Count - 1; i++)
         {
-            if (fileLines[i].StartsWith($"## @@{checkAndUpdate.MethodName}"))
+            if (fileLines[i].StartsWith($"## @@{checkAndUpdate.Endpoint}"))
             {
-                methodExists = true;
+                endpointExists = true;
 
-                if (fileLines[i + 1].Trim() != checkAndUpdate.Route)
+                if (fileLines[i + 1].Trim() != checkAndUpdate.MethodHttp || fileLines[i + 2].Trim() != checkAndUpdate.Route)
                 {
                     needToUpdate = true;
                 }
             }
         }
 
-        return methodExists;
+        return endpointExists;
     }
 }
