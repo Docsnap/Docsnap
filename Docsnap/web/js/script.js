@@ -1,3 +1,66 @@
+class DocumentationEndpoint {
+    constructor(endpoint = '', method = '', route = '', contentEndpoint = []) {
+        this.endpointName = endpoint;
+        this.endpointMethod = method;
+        this.endpointRoute = route;
+        this.contentEndpoint = contentEndpoint;
+    }
+
+    static fromJSON(json) {
+        return new DocumentationEndpoint(
+            json.endpointName || '',
+            json.endpointMethod || '',
+            json.endpointRoute || '',
+            json.contentEndpoint || []
+        );
+    }
+}
+
+class DocumentationController {
+    constructor(controller = '', controllerRoute = '', endpointsCollection = []) {
+        this.controllerName = controller;
+        this.controllerRoute = controllerRoute;
+        this.endpointsCollection = endpointsCollection;
+    }
+
+    static fromJSON(json) {
+        const endpoints = json.EndpointsCollection
+            ? json.EndpointsCollection.map(endpoint => DocumentationEndpoint.fromJSON(endpoint))
+            : [];
+        return new DocumentationController(
+            json.ControllerName || '',
+            json.ControllerRoute || '',
+            endpoints
+        );
+    }
+}
+
+class APIDocumentation {
+    constructor(DocumentationControllers = []) {
+        this.DocumentationControllers = DocumentationControllers;
+    }
+
+    static fromJSON(json) {
+        console.log('JSON:', json);
+        const parseAPI = JSON.parse(json);
+        console.log('Parsed:', parseAPI);
+        console.log('Controllers:', parseAPI[0]);
+        const controllers = parseAPI.DocumentationControllers
+            ? parseAPI.map(api => {
+                console.log('API:', api);
+                api.DocumentationControllers.map(controller => DocumentationController.fromJSON(controller))
+            })
+            : [];
+        return new APIDocumentation(controllers);
+    }
+}
+
+window.onload = function () {
+    const jsonData = document.getElementById('jsonMD').textContent;
+    console.log('APIDocumentation Data:', APIDocumentation.fromJSON(jsonData));
+    document.getElementById('jsonMD').remove();
+};
+
 // Import do Tailwind e a construção da página
 const addTailwindCSS = () => {
     const tailwind = document.createElement('script');
