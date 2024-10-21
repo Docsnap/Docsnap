@@ -18,6 +18,11 @@ class DocumentationEndpoint {
 
 class DocumentationController {
     constructor(controller = '', controllerRoute = '', endpointsCollection = []) {
+        if (!Array.isArray(endpointsCollection) ||
+            !endpointsCollection.every(endpoint => endpoint instanceof DocumentationEndpoint)) {
+            throw new Error('endpointsCollection deve ser um array de EndpointsCollection');
+        }
+
         this.controllerName = controller;
         this.controllerRoute = controllerRoute;
         this.endpointsCollection = endpointsCollection;
@@ -35,8 +40,13 @@ class DocumentationController {
 }
 
 class APIDocumentation {
-    constructor(DocumentationControllers = []) {
-        this.DocumentationControllers = DocumentationControllers;
+    constructor(documentationControllers = []) {
+        if (!Array.isArray(documentationControllers) ||
+            !documentationControllers.every(controller => controller instanceof DocumentationController)) {
+            throw new Error('documentationControllers deve ser um array de DocumentationController');
+        }
+
+        this.DocumentationControllers = documentationControllers;
     }
 
     static fromJSON(json) {
@@ -54,7 +64,8 @@ class APIDocumentation {
 
 window.onload = function () {
     const jsonData = document.getElementById('jsonMD').textContent;
-    console.log('APIDocumentation Data:', APIDocumentation.fromJSON(jsonData));
+    let apiDocs = APIDocumentation.fromJSON(jsonData);
+    console.log('APIDocumentation Data:', apiDocs);
     document.getElementById('jsonMD').remove();
 };
 
