@@ -8,10 +8,10 @@ class DocumentationEndpoint {
 
     static fromJSON(json) {
         return new DocumentationEndpoint(
-            json.endpointName || '',
-            json.endpointMethod || '',
-            json.endpointRoute || '',
-            json.contentEndpoint || []
+            json.EndpointName || '',
+            json.EndpointMethod || '',
+            json.EndpointRoute || '',
+            json.ContentEndpoint || []
         );
     }
 }
@@ -24,9 +24,8 @@ class DocumentationController {
     }
 
     static fromJSON(json) {
-        const endpoints = json.EndpointsCollection
-            ? json.EndpointsCollection.map(endpoint => DocumentationEndpoint.fromJSON(endpoint))
-            : [];
+        const endpoints = [];
+        json.EndpointsCollection.forEach(endpoint => endpoints.push(DocumentationEndpoint.fromJSON(endpoint)))
         return new DocumentationController(
             json.ControllerName || '',
             json.ControllerRoute || '',
@@ -41,16 +40,14 @@ class APIDocumentation {
     }
 
     static fromJSON(json) {
-        console.log('JSON:', json);
+        const controllers = [];
         const parseAPI = JSON.parse(json);
-        console.log('Parsed:', parseAPI);
-        console.log('Controllers:', parseAPI[0]);
-        const controllers = parseAPI.DocumentationControllers
-            ? parseAPI.map(api => {
-                console.log('API:', api);
-                api.DocumentationControllers.map(controller => DocumentationController.fromJSON(controller))
-            })
-            : [];
+
+        parseAPI.forEach(controller => {
+            if (controller) {
+                controllers.push(DocumentationController.fromJSON(controller))
+            }
+        });
         return new APIDocumentation(controllers);
     }
 }

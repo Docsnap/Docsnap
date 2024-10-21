@@ -10,7 +10,6 @@ este método é feito para todas as batatas
 ## @@Coisa
 ### &POST
        api/Teste/andar/{pe:int}
-       api/Teste/caminho/sozinho
 ## @@Cabeca
 ### &DELETE
        api/Teste/caminho/sozinho
